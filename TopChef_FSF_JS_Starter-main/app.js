@@ -183,7 +183,7 @@ function emailMessage(dishOfTheDay) {
     Thank you for subscribing to email alert messages!
     Today's Dish of the day is:
 
-    <DISH OF THE DAY HERE>
+    <BBQ Honey Pizza>
 
     We hope to see you in soon!
 
@@ -204,7 +204,7 @@ function textMessage(dishOfTheDay) {
     This is an automated text message alert.
     Today's Dish of the day is:
 
-    <DISH OF THE DAY HERE>
+    <G>rilled Shrimp and Crab Cakes
 
     We hope to see you in soon!
 
@@ -219,6 +219,8 @@ function textMessage(dishOfTheDay) {
 
 function generateMarketingMessage(dishOfTheDay, messageTypeCallback) {
     alert('Sending final message to all 389 customers...')
+    const message = messageTypeCallback(dishOfTheDay);
+    console.log(message)
     // TODO #7: Call the passed-in callback function on the dishOfTheDay.  Save the result as a variable
     // Then, log that result to the console
     alert('Success!  Check the console for a copy of the final marketing message!')
@@ -271,10 +273,14 @@ function runApp(allDishes, specialDish) {
         case "6":
             // TODO #8: Call the appropriate function to generate the marketing text message.  
             // You will need to provide today's dish and the appropriate callback function as arguments!
+            
+            generateMarketingMessage(dishOfTheDay, textMessage);
             break
         case "7":
             // TODO #9: Call the appropriate function to generate the marketing email message.  
             // You will need to provide today's dish and the appropriate callback function as arguments!
+            
+            generateMarketingMessage(dishOfTheDay, emailMessage);
             break
         case "Exit":
             alert("Thank you for using the Recipe Searching Application!  Goodbye!")
